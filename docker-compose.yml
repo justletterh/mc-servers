@@ -2,7 +2,8 @@ version: '3'
 services:
   mohist-1.12.2:
     image: itzg/minecraft-server
-    restart: always
+    restart: "no"
+    #restart: always
     environment:
       - "VERSION=1.12.2"
       - "TYPE=MOHIST"
@@ -12,8 +13,8 @@ services:
       - "ENABLE_COMMAND_BLOCK=true"
       - "ALLOW_NETHER=true"
       - "MOTD=H's 1.12.2 Mohist Server"
-      - "ICON=${ICON}"
-      - "MEMORY=${BIG_MEMORY}"
+      - "ICON=${MOHIST_ICON}"
+      - "MEMORY=${LARGE_MEMORY}"
       - "ENABLE_AUTOPAUSE=FALSE"
     ports:
       - "25501:25565"
@@ -30,8 +31,8 @@ services:
       - "ENABLE_COMMAND_BLOCK=true"
       - "ALLOW_NETHER=true"
       - "MOTD=H's 1.12.2 Vanilla Server"
-      - "ICON=${ICON}"
-      - "MEMORY=${MEMORY}"
+      - "ICON=${VANILLA_ICON}"
+      - "MEMORY=${SMALL_MEMORY}"
       - "ENABLE_AUTOPAUSE=FALSE"
     ports:
       - "25502:25565"
@@ -49,8 +50,8 @@ services:
       - "ENABLE_COMMAND_BLOCK=true"
       - "ALLOW_NETHER=true"
       - "MOTD=H's 1.12.2 Bukkit Server"
-      - "ICON=${ICON}"
-      - "MEMORY=${MEMORY}"
+      - "ICON=${BUKKIT_ICON}"
+      - "MEMORY=${SMALL_MEMORY}"
       - "ENABLE_AUTOPAUSE=FALSE"
     ports:
       - "25503:25565"
@@ -68,8 +69,8 @@ services:
       - "ENABLE_COMMAND_BLOCK=true"
       - "ALLOW_NETHER=true"
       - "MOTD=H's 1.12.2 Spigot Server"
-      - "ICON=${ICON}"
-      - "MEMORY=${MEMORY}"
+      - "ICON=${SPIGOT_ICON}"
+      - "MEMORY=${SMALL_MEMORY}"
       - "ENABLE_AUTOPAUSE=FALSE"
     ports:
       - "25504:25565"
@@ -87,10 +88,29 @@ services:
       - "ENABLE_COMMAND_BLOCK=true"
       - "ALLOW_NETHER=true"
       - "MOTD=H's 1.12.2 Paper Server"
-      - "ICON=${ICON}"
-      - "MEMORY=${MEMORY}"
+      - "ICON=${PAPER_ICON}"
+      - "MEMORY=${SMALL_MEMORY}"
       - "ENABLE_AUTOPAUSE=FALSE"
     ports:
       - "25505:25565"
     volumes:
       - "./1.12.2/paper/:/data/"
+  forge-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "TYPE=FORGE"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Forge Server"
+      - "ICON=${FORGE_ICON}"
+      - "MEMORY=${SMALL_MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25506:25565"
+    volumes:
+      - "./1.12.2/forge/:/data/"

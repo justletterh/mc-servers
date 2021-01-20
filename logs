@@ -1,2 +1,3 @@
 #!/bin/bash
+cd /root/mc-servers
 docker-compose logs

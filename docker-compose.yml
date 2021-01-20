@@ -1,0 +1,96 @@
+version: '3'
+services:
+  mohist-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "TYPE=MOHIST"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Mohist Server"
+      - "ICON=${ICON}"
+      - "MEMORY=${BIG_MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25501:25565"
+    volumes:
+      - "./1.12.2/mohist/:/data/"
+  vanilla-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Vanilla Server"
+      - "ICON=${ICON}"
+      - "MEMORY=${MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25502:25565"
+    volumes:
+      - "./1.12.2/vanilla/:/data/"
+  bukkit-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "TYPE=BUKKIT"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Bukkit Server"
+      - "ICON=${ICON}"
+      - "MEMORY=${MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25503:25565"
+    volumes:
+      - "./1.12.2/bukkit/:/data/"
+  spigot-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "TYPE=SPIGOT"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Spigot Server"
+      - "ICON=${ICON}"
+      - "MEMORY=${MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25504:25565"
+    volumes:
+      - "./1.12.2/spigot/:/data/"
+  paper-1.12.2:
+    image: itzg/minecraft-server
+    restart: always
+    environment:
+      - "VERSION=1.12.2"
+      - "TYPE=PAPER"
+      - "EULA=TRUE"
+      - "OPS=${OP}"
+      - "MAX_PLAYERS=${MAX_PLAYERS}"
+      - "ENABLE_COMMAND_BLOCK=true"
+      - "ALLOW_NETHER=true"
+      - "MOTD=H's 1.12.2 Paper Server"
+      - "ICON=${ICON}"
+      - "MEMORY=${MEMORY}"
+      - "ENABLE_AUTOPAUSE=FALSE"
+    ports:
+      - "25505:25565"
+    volumes:
+      - "./1.12.2/paper/:/data/"
